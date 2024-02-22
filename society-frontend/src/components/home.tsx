@@ -19,7 +19,7 @@ const Home = () => {
 
         <Faq />
       </div>
-      <div className="fixed w-screen   bottom-0 bg-white z-0">
+      <div className="fixed w-full     bottom-0 bg-white z-0">
         <Footer />
       </div>
     </>

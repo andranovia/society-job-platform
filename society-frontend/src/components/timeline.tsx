@@ -15,26 +15,27 @@ const Timeline = () => {
     }
   }, [control, isInView]);
 
-  const variantLine = {
-   
-  };
-
   return (
-    <div className="w-full mb-20 flex justify-center items-center flex-col">
+    <div
+      id="timeline"
+      className="w-full mb-20 flex justify-center items-center flex-col"
+    >
       <div className="flex justify-center flex-col items-center   gap-6 ">
         <BsArrowDownCircle size={40} />
         <motion.div
           className="bg-black h-44 w-1 rounded-md "
           initial="hidden"
-          variants={{ hidden: { opacity: 0, height: 10 },
-          animate: {
-            opacity: 1,
-            height: 140,
-            transition: {
-              duration: 1,
-              ease: "easeInOut",
+          variants={{
+            hidden: { opacity: 0, height: 10 },
+            animate: {
+              opacity: 1,
+              height: 140,
+              transition: {
+                duration: 1,
+                ease: "easeInOut",
+              },
             },
-          },}}
+          }}
           animate={control}
           ref={refOne}
         ></motion.div>
@@ -42,7 +43,7 @@ const Timeline = () => {
           <div className="flex items-center text-green-700 gap-2 justify-start">
             <BsBag size={20} color="green" />
           </div>
-          <div className="text-3xl absolute font-semibold w-[36rem] text-gray-800  right-16">
+          <div className="text-3xl absolute font-semibold w-[36rem] text-gray-800  right-52">
             <span className="text-green-600">Productive</span>
             <br />
             Our society app is designed to supercharge your professional life.
@@ -58,7 +59,7 @@ const Timeline = () => {
               transition: {
                 duration: 1,
                 ease: "easeInOut",
-                delay: 0.6
+                delay: 0.6,
               },
             },
           }}
@@ -76,7 +77,8 @@ const Timeline = () => {
             Our society app is designed to supercharge your professional life.
           </div>
         </div>
-        <motion.div  initial="hidden"
+        <motion.div
+          initial="hidden"
           variants={{
             hidden: { opacity: 0, height: 10 },
             animate: {
@@ -85,12 +87,14 @@ const Timeline = () => {
               transition: {
                 duration: 1,
                 ease: "easeInOut",
-                delay: 1
+                delay: 1,
               },
             },
           }}
           animate={control}
-          ref={refOne} className="bg-black h-44 w-1 rounded-md "></motion.div>
+          ref={refOne}
+          className="bg-black h-44 w-1 rounded-md "
+        ></motion.div>
         <SiFramework size={20} />
       </div>
     </div>
