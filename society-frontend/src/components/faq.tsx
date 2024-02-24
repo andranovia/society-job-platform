@@ -44,7 +44,7 @@ const Faq = () => {
   };
 
   return (
-    <div className="w-full py-20 px-4 text-primary">
+    <div id="faq" className="w-full py-20 px-4 text-primary">
       <div className="flex flex-col justify-center gap-4 items-center">
         <h1 className="text-4xl font-semibold">Have any question?</h1>
         <h3>Here's an answer for you</h3>

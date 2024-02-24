@@ -15,7 +15,7 @@ const Timeline = () => {
     }
   }, [control, isInView]);
   return (
-    <div className="w-fit lg:w-full mb-20 flex justify-start items-start lg:justify-center mx-10 lg:mx-0 lg:items-center flex-col">
+    <div id="timeline" className="w-fit lg:w-full mb-20 flex justify-start items-start lg:justify-center mx-10 lg:mx-0 lg:items-center flex-col">
       <div className="flex justify-start flex-col items-start lg:items-center gap-6 ">
         <BsArrowDownCircle size={40} />
         <motion.div

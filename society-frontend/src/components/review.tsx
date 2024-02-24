@@ -22,7 +22,7 @@ const reviewCardData = [
 
 const Review = () => {
   return (
-    <div className="w-full  flex justify-center flex-col p-4 items-center gap-10">
+    <div id="review" className="w-full  flex justify-center flex-col p-4 items-center gap-10">
         <h1 className="font-semibold w-80 px-4 lg:px-0 lg:w-[30rem] text-primary text-lg  sm:text-2xl ">
           As a platform our job is keeping the user <span className="text-secondary">comfort</span>, <span className="text-secondary">comfortefficiency</span>, and <span className="text-secondary">productivity</span> so they bring dreams comes alive.
         </h1>
