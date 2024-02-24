@@ -46,27 +46,27 @@ const AboutUs = () => {
     
       ref={element}
       style={{ opacity: scrollYProgress }}
-      className="flex flex-col-reverse sm:flex-row justify-center items-center gap-28  py-20"
+      className="flex flex-col sm:flex-row justify-center items-center gap-28  py-20"
     >
       <div className="1/3 flex flex-col gap-8">
-        <h1 className="font-semibold text-3xl sm:text-5xl sm:mx-0 mx-4">
+        <h1 className="font-semibold text-3xl sm:text-5xl sm:mx-0 mx-6">
           What we've done
         </h1>
-        <div className="grid grid-cols-2 gap-10 mx-4 sm:mx-0">
-          <div className=" p-8  rounded-md text-white bg-black">
+        <div className="grid grid-cols-2 gap-10 mx-6 sm:mx-0 text-primary">
+          <div className=" p-8  rounded-md  bg-secondary">
             <div className="flex flex-col items-start justify-center font-bold text-3xl">
               <span>{animationValues.societyRegistered}</span>
               <p className="text-base font-semibold">Society has registered</p>
             </div>
           </div>
-          <div className=" p-8  rounded-md text-black bg-white">
+          <div className=" p-8  rounded-md  bg-white">
             <div className="flex flex-col items-start justify-center font-bold text-3xl">
               <span>{animationValues.societyJob}</span>
               <p className="text-base font-semibold">Society has got a job</p>
             </div>
           </div>
 
-          <div className=" p-8 col-span-2  rounded-md text-white bg-black"  ref={ref}>
+          <div className=" p-8 col-span-2  rounded-md  bg-secondary"  ref={ref}>
             <div className="flex flex-col items-start justify-center font-bold text-3xl">
               <span>{animationValues.companyWork}</span>
               <p className="text-base font-semibold">
@@ -76,7 +76,7 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
-      <div className="sm:w-1/3 mx-6 sm:mx-0 flex flex-col justify-center items-start gap-10">
+      <div className="sm:w-1/3 mx-6 sm:mx-0 flex flex-col justify-center  text-primary items-start gap-10">
         <h1 className="font-semibold text-3xl sm:text-5xl ">
           A Job Seekers platform that bring dreams comes alife.
         </h1>

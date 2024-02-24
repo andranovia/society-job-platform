@@ -9,7 +9,27 @@ const UseMobile = () => {
     };
 
     handleResize();
+
+    let timeout: ReturnType<typeof setTimeout>;
+
+    const handleDebounce = () => {
+      clearTimeout(timeout);
+      timeout = setTimeout(handleResize, 300);
+    }
+
+    window.addEventListener('resize', handleDebounce);
+
+    return () => {
+      window.removeEventListener('resize', handleDebounce);
+      clearTimeout(timeout);
+    }
+
+
+
   }, []);
+
+
+
 
   return {
     isMobile,

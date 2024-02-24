@@ -14,7 +14,7 @@ const AnimatedText = ({ animatedText }: animatedTextProps) => {
 
   return (
     <>
-      <motion.div className=" bg-black   ">
+      <motion.div className=" ">
         {animatedText.split(" ").map((word, index) => (
           <div className={"inline-block overflow-hidden sm:h-28"}>
             <motion.div
@@ -34,7 +34,7 @@ const AnimatedText = ({ animatedText }: animatedTextProps) => {
               }}
               key={index}
             >
-              <h1 className="bg-black">
+              <h1 className="">
                 {word}
                 {<>&nbsp;</>}
               </h1>

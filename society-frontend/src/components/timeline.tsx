@@ -14,16 +14,12 @@ const Timeline = () => {
       control.start("animate");
     }
   }, [control, isInView]);
-
   return (
-    <div
-      id="timeline"
-      className="w-full mb-20 flex justify-center items-center flex-col"
-    >
-      <div className="flex justify-center flex-col items-center   gap-6 ">
+    <div className="w-fit lg:w-full mb-20 flex justify-start items-start lg:justify-center mx-10 lg:mx-0 lg:items-center flex-col">
+      <div className="flex justify-start flex-col items-start lg:items-center gap-6 ">
         <BsArrowDownCircle size={40} />
         <motion.div
-          className="bg-black h-44 w-1 rounded-md "
+          className="bg-secondary h-44 w-1 rounded-md mx-4 lg:mx-0 "
           initial="hidden"
           variants={{
             hidden: { opacity: 0, height: 10 },
@@ -39,16 +35,18 @@ const Timeline = () => {
           animate={control}
           ref={refOne}
         ></motion.div>
-        <div className=" flex items-center gap-10 justify-start ">
-          <div className="flex items-center text-green-700 gap-2 justify-start">
-            <BsBag size={20} color="green" />
-          </div>
-          <div className="text-3xl absolute font-semibold w-[36rem] text-gray-800  right-52">
-            <span className="text-green-600">Productive</span>
+
+        <div className="flex items-center mx-3 lg:mx-0 gap-8 lg:gap-2 justify-start">
+          <BsBag size={40} color="brown" />
+          <div className="lg:text-3xl  lg:mx-0 lg:absolute font-semibold lg:w-[36rem] text-primary  lg:right-16">
+            <span className="text-2xl text-secondary">Productive</span>
             <br />
-            Our society app is designed to supercharge your professional life.
+            <span className="">
+              Our society app is designed to supercharge your professional life.
+            </span>
           </div>
         </div>
+
         <motion.div
           initial="hidden"
           variants={{
@@ -65,18 +63,19 @@ const Timeline = () => {
           }}
           animate={control}
           ref={refOne}
-          className="bg-black h-44 w-1 rounded-md "
+          className="bg-secondary h-44 w-1 rounded-md mx-4 lg:mx-0"
         ></motion.div>
-        <div className="relative  flex items-center gap-2 justify-start ">
-          <div className="flex items-center text-pink-700 gap-2 justify-start">
-            <TbFriends size={20} />
-          </div>
-          <div className="text-3xl absolute font-semibold text-end w-[36rem] text-gray-800 right-32">
-            <span className="text-pink-400">Collaboration</span>
+        <div className="flex items-center mx-3 lg:mx-0 gap-8 lg:gap-2 justify-start">
+          <TbFriends size={40} color="brown" />
+          <div className="lg:text-3xl lg:left-10 lg:text-end lg:mx-0 lg:absolute font-semibold lg:w-[36rem] text-primary  lg:right-16">
+            <span className="text-2xl text-secondary">Collaboration</span>
             <br />
-            Our society app is designed to supercharge your professional life.
+            <span className="">
+              Our society app is designed to supercharge your professional life.
+            </span>
           </div>
         </div>
+
         <motion.div
           initial="hidden"
           variants={{
@@ -93,9 +92,9 @@ const Timeline = () => {
           }}
           animate={control}
           ref={refOne}
-          className="bg-black h-44 w-1 rounded-md "
+          className="bg-secondary h-44 w-1 rounded-md mx-4 lg:mx-0 "
         ></motion.div>
-        <SiFramework size={20} />
+        <SiFramework size={20} className="mx-2 lg:mx-0" />
       </div>
     </div>
   );

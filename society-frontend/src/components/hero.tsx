@@ -13,7 +13,7 @@ const Hero = () => {
     "Secure your Dream Job in a thriving Society of success.";
 
   return (
-    <div className="sm:w-2/3 w-2/3 bg-black sm:mx-20 mx-14 py-10 pb-24 flex flex-col justify-center sm:gap-10 gap-4 font-bold ">
+    <div className="sm:w-2/3 w-2/3 shadow-sm sm:mx-20 mx-8 py-4 lg:py-10 lg:pb-24 flex flex-col justify-center sm:gap-10 gap-4 font-bold ">
       <motion.div
         className="text-2xl sm:text-8xl mt-4  text-white"
         variants={{
@@ -30,7 +30,7 @@ const Hero = () => {
       >
         <AnimatedText animatedText={animatedTextHero} />
       </motion.div>
-      <p className="text-white font-normal text-sm sm:text-base sm:font-semibold">
+      <p className="text-white font-normal text-sm sm:text-2xl sm:font-semibold hidden lg:block">
         What are you wating for? Join today and bring up Your future!
       </p>
     </div>

@@ -8,6 +8,16 @@ export default {
     extend: {
       fontFamily: {
         poppins: ['poppins', 'sans-serif']
+      },
+      backgroundColor: {
+        base: '#EEEDEB',
+        secondary: '#E0CCBE',
+        primary: '#3C3633',
+      },
+      textColor: {
+
+        secondary: '#756355',
+        primary: '#3C3633',
       }
     },
   },

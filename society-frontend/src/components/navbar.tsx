@@ -3,9 +3,8 @@ import { motion, useAnimationControls } from "framer-motion";
 import { FaPeopleGroup, FaRegCircleCheck, FaJoint } from "react-icons/fa6";
 import UseMobile from "../hooks/useMobile";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { Link } from "react-scroll";
 
-const Navbar = () => {
+const Navbar = ({ onLinkClick }) => {
   const controls = useAnimationControls();
   const { isMobile } = UseMobile();
   const handleHover = () => {
@@ -38,13 +37,20 @@ const Navbar = () => {
     <div className="flex bg-white z-40 fixed w-full justify-between items-center py-4 pb-8 top-0 ">
       <div className="flex justify-center items-baseline text-center sm:mx-20 mx-4 gap-10">
         <h1 className="text-3xl font-bold">Society</h1>
-        {!isMobile && (
-          <div className="flex flex-col justify-start items-start">
+      
+      </div>
+      <div className="flex justify-center items-center gap-4 mx-4 sm:mx-20">
+      <a href="#about" className="font-bold text-gray-900" onClick={() => onLinkClick('about')}>About /</a>
+
+      {!isMobile && (
+          <div className="flex flex-col justify-start items-end">
+            
             <motion.div
               onMouseEnter={() => handleHover()}
               onMouseLeave={() => handleHoverEnd()}
               className="flex relative z-20 justify-center items-center gap-2 cursor-pointer"
             >
+            
               Feature <RiArrowDownSLine />
             </motion.div>
 
@@ -75,36 +81,7 @@ const Navbar = () => {
             </motion.div>
           </div>
         )}
-      </div>
-      <div className="flex justify-center items-center gap-4 mx-4 sm:mx-20">
-        <Link
-          className="font-bold text-gray-900 cursor-pointer"
-          to="about"
-          duration="500"
-          spy={true}
-          smooth={true}
-        >
-          About /
-        </Link>
-        <Link
-          className="font-bold text-gray-900 cursor-pointer"
-          to="timeline"
-          duration="500"
-          spy={true}
-          smooth={true}
-        >
-          Timeline /
-        </Link>
-        <Link
-          className="font-bold text-gray-900 cursor-pointer"
-          to="faq"
-          duration="500"
-          spy={true}
-          smooth={true}
-        >
-          FAQ /
-        </Link>
-
+      
         {isMobile && (
           <div>
             <GiHamburgerMenu size={20} />
