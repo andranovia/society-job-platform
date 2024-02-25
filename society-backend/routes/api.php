@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\api\AuthController;
+use App\Http\Controllers\api\JobCategoryController;
+use App\Http\Controllers\api\ValidationRequestController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,4 +22,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::post('login', [AuthController::class, 'login']);
+
+
+Route::prefix('v1')->group(function () {
+    Route::get('job-category', [JobCategoryController::class, 'index']);
+    Route::post('login', [AuthController::class, 'login']);
+    Route::get('validation-get', [ValidationRequestController::class, 'getValidationRequest']);
+    Route::post('validation-request', [ValidationRequestController::class, 'validationRequest']);
+});

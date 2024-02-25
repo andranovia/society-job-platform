@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\loginRequest;
+use App\Http\Requests\SocietyAuthRequest;
 use App\Models\Society;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,7 +28,7 @@ class AuthController extends Controller
                 'gender' => $Society->gender,
                 'address' => $Society->address,
                 'token' => $token,
-                'regional' => $Society->regional
+                'regional' => $Society->regionals
             ];
             $Society->login_tokens = $token;
             $Society->save();
