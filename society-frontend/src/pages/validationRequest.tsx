@@ -14,7 +14,7 @@ interface validationRequestProps {
 const ValidationRequest = () => {
   const [validationRequest, setValidationRequest] =
     useState<validationRequestProps>({
-      job_category_id: 0,
+      job_category_id: 1,
       job_position: "",
       work_experience: "",
       reason_accepted: "",

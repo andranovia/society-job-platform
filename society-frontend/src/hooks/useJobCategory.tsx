@@ -13,13 +13,15 @@ interface JobCategoryDataProps {
 
 const useJobCategory = () => {
   const [jobCategoryData, setJobCategoryData] = useState<JobCategoryDataProps>({ data: [] });
+  
+
 
   useEffect(() => {
     axiosInstane
       .get("api/v1/job-category")
       .then((res) => setJobCategoryData(res.data))
       .catch((err) => console.log(err));
-  });
+  }, []);
 
   return { jobCategoryData };
 };

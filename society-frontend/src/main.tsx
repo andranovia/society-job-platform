@@ -6,7 +6,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 import UserDashboard from './pages/userDashboard.tsx'
 import App from './App.tsx'
-import Login from './components/login.tsx'
+import Login from './pages/login.tsx'
 import ValidationRequest from './pages/validationRequest.tsx'
 
 const route= createBrowserRouter([

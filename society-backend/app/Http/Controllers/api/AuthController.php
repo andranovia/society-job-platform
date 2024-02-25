@@ -33,10 +33,10 @@ class AuthController extends Controller
             $Society->login_tokens = $token;
             $Society->save();
 
-            return response()->json([
-                'data' => $success,
+            return response()->json(
+               $success, 200
 
-            ]);
+            );
         } else {
             return response()->json([
                 'message' => 'ID Card Number or Password incorrect'

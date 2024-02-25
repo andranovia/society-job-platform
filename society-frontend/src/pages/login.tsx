@@ -1,6 +1,5 @@
 import { ChangeEvent, useState } from "react";
-import axiosInstane from "../tools/axiosInstance";
-import { useNavigate } from "react-router-dom";
+import useAuthSociety from "../hooks/useAuthSociety";
 
 interface LoginDataPorps {
   id_card_number: number;
@@ -12,7 +11,7 @@ const Login = () => {
     id_card_number: 0,
     password: "",
   });
-  const navigate = useNavigate();
+  const {loginSociety} = useAuthSociety();
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -22,12 +21,6 @@ const Login = () => {
     }));
   };
 
-  const login = () => {
-    axiosInstane
-      .post("api/v1/auth/login", loginData)
-      .then(() => navigate("/request"))
-      .catch((err) => console.log(err));
-  };
 
   return (
     <div className="w-full bg-base">
@@ -57,7 +50,7 @@ const Login = () => {
             </div>
             <button
               className="bg-primary rounded-md p-2 text-white"
-              onClick={() => login()}
+              onClick={() => loginSociety({loginData: loginData})}
             >
               Login
             </button>

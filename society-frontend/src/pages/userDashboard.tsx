@@ -1,8 +1,12 @@
 import React from "react";
 import LayoutDashboardUser from "../layout/layoutDashboardUser";
 import { Link } from "react-router-dom";
+import useRequestValidation from "../hooks/useRequestValidation";
 
 const UserDashboard = () => {
+  const {validationData} = useRequestValidation();
+
+
   return (
     <LayoutDashboardUser>
       <div className="w-full h-full">
@@ -13,12 +17,58 @@ const UserDashboard = () => {
             <h2 className="text-gray-700 text-2xl">My Data Validation</h2>
             <div className=" rounded-md p-4">
               <h2 className="text-gray-700 font-semibold">Data Validation</h2>
-
+              {validationData ? (
+                  <>
+                    <div className="border-2 flex flex-col gap-4 rounded-md  mt-4 w-full p-2 ">
+                      <div className="flex justify-between items-center ">
+                        <h2 className="font-semibold">status</h2>
+                        <h2 className="bg-green-300 p-1 rounded-md">
+                          {validationData.status}
+                        </h2>
+                      </div>
+                      <div className="flex justify-between items-center gap-10">
+                        <h2 className="font-semibold">Job Category</h2>
+                        <h2 className="p-1 rounded-md">
+                          {validationData.job_category_id}
+                        </h2>
+                      </div>
+                      <div className="flex justify-between items-center gap-10">
+                        <h2 className="font-semibold">Job Position</h2>
+                        <h2 className="p-1 rounded-md">
+                          {validationData.job_position}
+                        </h2>
+                      </div>
+                      <div className="flex justify-between items-center gap-10">
+                        <h2 className="font-semibold">Reason accepted</h2>
+                        <h2 className="p-1 rounded-md">
+                          {validationData.reason_accepted}
+                        </h2>
+                      </div>
+                      <div className="flex justify-between items-center gap-10">
+                        <h2 className="font-semibold">Validator</h2>
+                        <h2 className="p-1 rounded-md">
+                          {validationData.validator_id
+                            ? validationData.validator_id
+                            : "processing"}
+                        </h2>
+                      </div>
+                      <div className="flex justify-between items-center gap-10">
+                        <h2 className="font-semibold">Validator notes</h2>
+                        <h2 className="p-1 rounded-md">
+                          {validationData.validator_notes
+                            ? validationData.validator_notes
+                            : "none"}
+                        </h2>
+                      </div>
+                    </div>
+                  </>
+                ) : (
               <Link to={"/validation-request"}>
                 <button className="mt-4 bg-primary py-3 px-10 text-white">
                   + request validation
                 </button>
               </Link>
+                )}
             </div>
           </div>
           <div className="flex flex-col gap-8 mt-10 mb-20">

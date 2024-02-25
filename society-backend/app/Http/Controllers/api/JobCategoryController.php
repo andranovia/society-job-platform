@@ -12,6 +12,6 @@ class JobCategoryController extends Controller
     {
         $JobCategory = JobCategory::get();
 
-        return response()->json($JobCategory, 200);
+        return response()->json(['data' => $JobCategory, 200]);
     }
 }
