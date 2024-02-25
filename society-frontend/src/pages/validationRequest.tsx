@@ -40,12 +40,12 @@ const ValidationRequest = () => {
   return (
     <LayoutDashboardUser>
       <div className="w-full h-full ">
-        <div className="flex flex-col justify-center mx-4">
+        <div className="flex flex-col justify-center lg:items-center lg:mt-20  lg:mb-40  mx-4">
           <h1 className="text-4xl my-10 font-semibold mx-6">
             Validation Request
           </h1>
-          <div className="flex flex-col  m-6 gap-4 justify-center">
-            <div className="grid w-full grid-cols-2  gap-4 items-center ">
+          <div className="flex flex-col lg:w-1/3   m-6 gap-4 justify-center">
+            <div className="grid w-full  grid-cols-2  gap-4 items-center ">
               <h2 className="text-lg font-semibold ">Job Category :</h2>
               <select
                 name="job_category_id"
