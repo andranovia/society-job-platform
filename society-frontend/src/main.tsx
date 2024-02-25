@@ -1,10 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
+
 import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+
+import UserDashboard from './pages/userDashboard.tsx'
+import App from './App.tsx'
 import Login from './components/login.tsx'
-import ValidationRequest from './components/validationRequest.tsx'
+import ValidationRequest from './pages/validationRequest.tsx'
 
 const route= createBrowserRouter([
   {
@@ -16,7 +19,11 @@ const route= createBrowserRouter([
     element: <Login/>
   },
   {
-    path: '/request',
+    path: '/user-dashboard',
+    element: <UserDashboard/>
+  },
+  {
+    path: '/validation-request',
     element: <ValidationRequest/>
   },
 ])

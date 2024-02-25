@@ -1,18 +1,25 @@
-import React, { ReactNode } from 'react'
-import NavbarDashboardUser from '../components/navbarDashboardUser';
+import React, { ReactNode } from "react";
+import NavbarDashboardUser from "../components/navbarDashboardUser";
+import Footer from "../components/footer";
 
 interface LayoutDashboardUserProps {
-    children: ReactNode;
+  children: ReactNode;
 }
 
-
-const LayoutDashboardUser = ({children}: LayoutDashboardUserProps) => {
+const LayoutDashboardUser = ({ children }: LayoutDashboardUserProps) => {
   return (
     <>
-    <div><NavbarDashboardUser/></div>
-    {children}
+      <div>
+        <NavbarDashboardUser />
+      </div>
+      <div className="my-20">
+      {children}
+      </div>
+      <div>
+        <Footer />
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default LayoutDashboardUser
+export default LayoutDashboardUser;

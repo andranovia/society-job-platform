@@ -1,10 +1,10 @@
-import AboutUs from "./aboutUs";
-import Faq from "./faq";
-import Footer from "./footer";
-import Hero from "./hero";
+import AboutUs from "../components/aboutUs";
+import Faq from "../components/faq";
+import Footer from "../components/footer";
+import Hero from "../components/hero";
 
-import Review from "./review";
-import Timeline from "./timeline";
+import Review from "../components/review";
+import Timeline from "../components/timeline";
 
 const Home = () => {
   return (
