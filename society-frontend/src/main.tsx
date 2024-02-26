@@ -8,6 +8,8 @@ import UserDashboard from './pages/userDashboard.tsx'
 import App from './App.tsx'
 import Login from './pages/login.tsx'
 import ValidationRequest from './pages/validationRequest.tsx'
+import JobVacancy from './pages/jobVacancy.tsx'
+import JobVacancyDetail from './pages/jobVacancyDetail.tsx'
 
 const route= createBrowserRouter([
   {
@@ -25,6 +27,14 @@ const route= createBrowserRouter([
   {
     path: '/validation-request',
     element: <ValidationRequest/>
+  },
+  {
+    path: '/job-vacancies',
+    element: <JobVacancy/>
+  },
+  {
+    path: '/job-vacancies-detail/:id',
+    element: <JobVacancyDetail/>
   },
 ])
 
