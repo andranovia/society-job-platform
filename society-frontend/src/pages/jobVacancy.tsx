@@ -9,12 +9,12 @@ const JobVacancy = () => {
   return (
     <LayoutDashboardUser>
       <div className="w-full min-h-screen">
-        <div className="flex justify-center items-start mx-8 lg:px-20 lg:mx-20  flex-col mt-32">
+        <div className="flex justify-center items-start lg:items-center mx-8 lg:px-20 lg:mx-20  flex-col mt-32 lg:mt-44">
           <h1 className="font-semibold text-primary text-5xl">Job Vacancy</h1>
           <h2 className="font-normal text-primary text-2xl mt-10">
             List of Job Vacancies
           </h2>
-          <div className="flex flex-col w-full  ">
+          <div className="flex flex-col w-full lg:w-1/2  ">
             {jobVacancies.vacancies.map((data, index) => (
               <React.Fragment key={index} >
                 <div className="flex flex-col  justify-center lg:items-start  mt-10 gap-4 bg-base p-4 w-full">

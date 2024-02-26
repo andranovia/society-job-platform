@@ -10,23 +10,23 @@ const JobVacancyDetail = () => {
   return (
     <LayoutDashboardUser>
       <div className="w-full min-h-screen    mt-36">
-        <div className="flex flex-col justify-center items-start mx-10">
+        <div className="flex flex-col justify-center items-start lg:items-center mx-10">
           <h1 className="text-2xl lg:text-4xl text-primary font-semibold">
             {jobVacancyDetail?.vacancies.company}
           </h1>
           <p className="text-secondary">
             {jobVacancyDetail?.vacancies.address}
           </p>
-          <h1 className="text-lg text-primary font-semibold mt-10">
+          <h1 className="text-lg text-primary lg:text-2xl font-semibold mt-10">
             Description
           </h1>
           <p className="text-secondary">
             {jobVacancyDetail?.vacancies.description}
           </p>
-          <h1 className="text-lg text-primary font-semibold mt-10">
+          <h1 className="text-lg text-primary lg:text-2xl font-semibold mt-10">
             Select Position
           </h1>
-          <div className="flex flex-col w-full">
+          <div className="flex flex-col w-full lg:w-1/2">
             <div className=" w-full mt-4">
               {jobVacancyDetail?.vacancies.available_position.map(
                 (data, index) => (
