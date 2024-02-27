@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\api\AuthController;
+use App\Http\Controllers\api\JobApplyController;
 use App\Http\Controllers\api\JobCategoryController;
 use App\Http\Controllers\api\JobVacancyController;
 use App\Http\Controllers\api\ValidationRequestController;
@@ -32,4 +33,6 @@ Route::prefix('v1')->group(function () {
     Route::post('validation-request', [ValidationRequestController::class, 'validationRequest']);
     Route::get('job-vacancy', [JobVacancyController::class, 'index']);
     Route::get('job-vacancy/{id}', [JobVacancyController::class, 'jobVacancyDetail']);
+    Route::post('job-apply', [JobApplyController::class, 'jobApplySociety']);
+    Route::get('get-job-apply', [JobApplyController::class, 'show']);
 });
