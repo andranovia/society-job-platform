@@ -1,24 +1,42 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useReducer, useState } from "react";
 import LayoutDashboardUser from "../layout/layoutDashboardUser";
 
 import useJobCategory from "../hooks/useJobCategory";
 import useRequestValidation from "../hooks/useRequestValidation";
 
-interface validationRequestProps {
+type ActionType = {
+  type: "SET_FIELD";
+  payload: { name: string; value: string };
+};
+type validationRequestProps = {
   job_category_id: number;
   job_position: string;
   work_experience: string | null;
   reason_accepted: string | null;
-}
+};
+
+const reducer = (
+  state: validationRequestProps,
+  action: ActionType
+): validationRequestProps => {
+  switch (action.type) {
+    case "SET_FIELD":
+      return { ...state, [action.payload.name]: action.payload.value };
+
+    default:
+      return state;
+  }
+};
+
+const initialState: validationRequestProps = {
+  job_category_id: 1,
+  job_position: "",
+  work_experience: "",
+  reason_accepted: "",
+};
 
 const ValidationRequest = () => {
-  const [validationRequest, setValidationRequest] =
-    useState<validationRequestProps>({
-      job_category_id: 1,
-      job_position: "",
-      work_experience: "",
-      reason_accepted: "",
-    });
+  const [validationRequest, dispatch] = useReducer(reducer, initialState);
   const [isWorkExperience, setisWorkExperience] = useState(true);
 
   const { jobCategoryData } = useJobCategory();
@@ -31,10 +49,7 @@ const ValidationRequest = () => {
       | ChangeEvent<HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setValidationRequest((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    dispatch({ type: "SET_FIELD", payload: { name, value } });
   };
 
   return (

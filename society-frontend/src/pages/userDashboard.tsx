@@ -15,7 +15,7 @@ const UserDashboard = () => {
             <h2 className="text-gray-700 text-2xl ">My Data Validation</h2>
             <div className=" rounded-md p-4">
               <h2 className="text-gray-700 font-semibold">Data Validation</h2>
-              {validationData ? (
+              {validationData && Object.keys(validationData).length > 0 ? (
                 <>
                   <div className="border-2 flex flex-col gap-4 rounded-md text-start mt-4 w-full p-2 ">
                     <div className="flex justify-between  items-center ">
