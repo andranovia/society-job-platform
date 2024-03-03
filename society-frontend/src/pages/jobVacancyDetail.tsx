@@ -61,15 +61,15 @@ const JobVacancyDetail = () => {
               <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
                 <tr>
                   <th scope="col" className="p-4">
-                    checkbox
+              
                   </th>
-                  <th scope="col" className="px-32 py-3">
+                  <th scope="col" className="lg:px-32 p-3 py-3">
                     Position
                   </th>
-                  <th scope="col" className="px-32 py-3">
+                  <th scope="col" className="lg:px-32 py-3 p-3">
                     Capacity
                   </th>
-                  <th scope="col" className="px-32 py-3">
+                  <th scope="col" className="lg:px-32 py-3 p-3">
                     Application / Max
                   </th>
                 </tr>
@@ -80,13 +80,13 @@ const JobVacancyDetail = () => {
                     (data, index) => (
                       <React.Fragment key={index}>
                         <td className="w-4 p-4">
-                          <div className="flex items-center">
+                          <div className="flex items-center ">
                             <input
                               id="checkbox"
                               type="checkbox"
                               name="position"
                               onChange={() => handleChange(data.id)}
-                              className="w-4 h-4 text-gray-500 bg-gray-100 border-gray-300 rounded  ring-offset-gray-800 focus:ring-offset-gray-800 focus:ring-2 "
+                              className="w-4 h-4 text-gray-500 bg-gray-100  border-gray-300 rounded  ring-offset-gray-800 focus:ring-offset-gray-800 focus:ring-2 "
                             />
                             <label form="checkbox" className="sr-only">
                               checkbox
@@ -94,13 +94,14 @@ const JobVacancyDetail = () => {
                           </div>
                         </td>
                         <th
-                          scope="row"
-                          className="px-32 py-4 font-medium text-gray-900 whitespace-nowrap "
+                        
+                          className="lg:px-32  py-4 font-medium p-3 text-gray-900  "
                         >
-                          {data.position}
+                           {data.position}
+                  
                         </th>
-                        <td className="px-32 py-4">{data.capacity}</td>
-                        <td className="px-32 py-4">{data.apply_capacity}</td>
+                        <td className="lg:px-32 py-4 p-3 text-center">{data.capacity}</td>
+                        <td className="lg:px-32 py-4 p-3 text-center lg:text-start">{data.apply_capacity}</td>
                       </React.Fragment>
                     )
                   )}

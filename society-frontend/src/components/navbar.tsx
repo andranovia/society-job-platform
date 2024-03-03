@@ -1,13 +1,18 @@
 import { RiArrowDownSLine } from "react-icons/ri";
 import { motion, useAnimationControls } from "framer-motion";
-import { FaPeopleGroup, FaRegCircleCheck, FaJoint } from "react-icons/fa6";
+import { FaPeopleGroup,    FaJoint } from "react-icons/fa6";
 import UseMobile from "../hooks/useMobile";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { Link } from "react-scroll";
+import { Link } from "react-router-dom";
+import { Link as Scroll } from "react-scroll";
 
 const Navbar = () => {
   const controls = useAnimationControls();
+
+  const user = localStorage.getItem("token");
+
   const { isMobile } = UseMobile();
+
   const handleHover = () => {
     controls.start({ opacity: 1, visibility: "visible" });
   };
@@ -18,19 +23,17 @@ const Navbar = () => {
 
   const navlinkArray = [
     {
-      link: "Society Data",
-      desc: "Society around you",
+      name: "Dashboard",
+      desc: "Manage your dreams",
       icons: <FaPeopleGroup />,
+      link: '/user-dashboard'
     },
+    
     {
-      link: "Job Validation",
-      desc: "Apply your validation",
-      icons: <FaRegCircleCheck />,
-    },
-    {
-      link: "Job Application",
+      name: "Job Application",
       desc: "Apply for jobs",
       icons: <FaJoint />,
+      link: '/job-vacancies'
     },
   ];
 
@@ -58,18 +61,24 @@ const Navbar = () => {
               <div className="flex p-4 gap-4 justify-center bg-white flex-col bg-opacity-90 backdrop-filter backdrop-blur-sm items-start  rounded-lg  border-black ">
                 <h2 className="font-semibold">Society</h2>
                 <div className="grid grid-cols-2 justify-start items-start gap-8">
-                  {navlinkArray.map((data, index) => (
-                    <div
-                      key={index}
-                      className="flex  justify-start gap-4 items-center p-2 rounded-md duration-400 cursor-pointer transition-all hover:bg-gray-100"
-                    >
-                      {data.icons}
-                      <div className="flex flex-col justify-start items-start">
-                        <h1 className="font-bold">{data.link}</h1>
-                        <p>{data.desc}</p>
-                      </div>
-                    </div>
-                  ))}
+                  {user && (
+                    <>
+                      {navlinkArray.map((data, index) => (
+                        <Link to={data.link}>
+                        <div
+                          key={index}
+                          className="flex  justify-start gap-4 items-center p-2 rounded-md duration-400 cursor-pointer transition-all hover:bg-gray-100"
+                        >
+                          {data.icons}
+                          <div className="flex flex-col justify-start items-start">
+                            <h1 className="font-bold">{data.name}</h1>
+                            <p>{data.desc}</p>
+                          </div>
+                        </div>
+                        </Link>
+                      ))}
+                    </>
+                  )}
                 </div>
               </div>
             </motion.div>
@@ -77,45 +86,46 @@ const Navbar = () => {
         )}
       </div>
       <div className="flex justify-center items-center gap-4 mx-4 sm:mx-20">
-       {!isMobile && (
-        <>
-         <Link
-          to="about"
-          spy={true}
-          smooth={true}
-          duration={500}
-          className="font-semibold   text-gray-900 cursor-pointer"
-        >
-          About /
-        </Link>
-        <Link
-          to="timeline"
-          spy={true}
-          smooth={true}
-          duration={500}
-          className="font-semibold text-gray-900 cursor-pointer"
-        >
-          Timeline /
-        </Link>
-        <Link
-          to="review"
-          spy={true}
-          smooth={true}
-          duration={500}
-          className="font-semibold text-gray-900 cursor-pointer"
-        >
-          Review /
-        </Link>
-        <Link
-          to="faq"
-          spy={true}
-          smooth={true}
-          duration={500}
-          className="font-semibold text-gray-900 cursor-pointer"
-        >
-          Faq /
-        </Link></>
-       )}
+        {!isMobile && (
+          <>
+            <Scroll
+              to="about"
+              spy={true}
+              smooth={true}
+              duration={500}
+              className="font-semibold   text-gray-900 cursor-pointer"
+            >
+              About /
+            </Scroll>
+            <Scroll
+              to="timeline"
+              spy={true}
+              smooth={true}
+              duration={500}
+              className="font-semibold text-gray-900 cursor-pointer"
+            >
+              Timeline /
+            </Scroll>
+            <Scroll
+              to="review"
+              spy={true}
+              smooth={true}
+              duration={500}
+              className="font-semibold text-gray-900 cursor-pointer"
+            >
+              Review /
+            </Scroll>
+            <Scroll
+              to="faq"
+              spy={true}
+              smooth={true}
+              duration={500}
+              className="font-semibold text-gray-900 cursor-pointer"
+            >
+              Faq /
+            </Scroll>
+          </>
+        )}
 
         {isMobile && (
           <div>

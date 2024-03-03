@@ -35,13 +35,16 @@ const UserJobApplyInfo = ({ userApplyJobsInfo }: userApplyJobsInfoProps) => {
             </div>
             <div className="flex justify-between items-center w-full  mt-4">
               <h2 className=" ">Position</h2>
-              <ul className="list-disc flex flex-col items-start gap-2">
-                <li className="font-thin  ">
-                  {data.position.position}{" "}
-                  <span className="ml-2 bg-secondary text-primary font-semibold text-sm p-1  rounded-md">
-                    {data.position.apply_status}
-                  </span>
+
+              <ul className="font-thin  flex flex-row justify-end">
+                <li className=" truncate w-1/2 lg:w-full">
+                 
+                  {data.position.position}
                 </li>
+
+                <span className="ml-2 bg-secondary text-primary font-semibold text-sm p-1  rounded-md">
+                  {data.position.apply_status}
+                </span>
               </ul>
             </div>
             <div className="flex justify-between items-center w-full  mt-4">

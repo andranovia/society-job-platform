@@ -10,6 +10,7 @@ interface loginProps {
 
 interface handleResponseProps {
   data: {
+    name: string;
     token: string;
   };
 }
@@ -20,6 +21,7 @@ const useAuthSociety = () => {
   const handleResponse = ({ data }: handleResponseProps) => {
     navigate("/user-dashboard");
     localStorage.setItem("token", data.token);
+    localStorage.setItem("user", data.name);
   };
 
   const loginSociety = ({ loginData }: loginProps) => {

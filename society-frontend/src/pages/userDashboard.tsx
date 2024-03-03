@@ -18,7 +18,7 @@ const UserDashboard = () => {
             <h2 className="text-gray-700 text-2xl ">My Data Validation</h2>
             <div className=" rounded-md p-4">
               <h2 className="text-gray-700 font-semibold">Data Validation</h2>
-              <div className="w-[30vw]">
+              <div className="w-full lg:w-[30vw]">
               <UserValidationInfo validationData={validationData} />
               </div>
             </div>
@@ -41,7 +41,7 @@ const UserDashboard = () => {
               </div>
             )}
           </div>
-          <div className="w-[30vw]">
+          <div className="w-full lg:w-[30vw]">
          
             <UserJobApplyInfo userApplyJobsInfo={userApplyJobsInfo} />
           </div>

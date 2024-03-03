@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import AboutUs from "../components/aboutUs";
 import Faq from "../components/faq";
 import Footer from "../components/footer";
@@ -5,8 +6,19 @@ import Hero from "../components/hero";
 
 import Review from "../components/review";
 import Timeline from "../components/timeline";
+import { useEffect } from "react";
 
 const Home = () => {
+  const navigate = useNavigate();
+  const user = localStorage.getItem("token");
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/login");
+    }
+  }, [user, navigate]);
+
+  
   return (
     <>
       <div className="mb-[40rem] bg-white relative z-20 ">
@@ -14,7 +26,7 @@ const Home = () => {
           <Hero />
         </div>
         <AboutUs />
-         <Timeline />
+        <Timeline />
         <Review />
 
         <Faq />
