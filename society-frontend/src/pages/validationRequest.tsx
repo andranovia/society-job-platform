@@ -8,6 +8,7 @@ type ActionType = {
   type: "SET_FIELD";
   payload: { name: string; value: string };
 };
+
 type validationRequestProps = {
   job_category_id: number;
   job_position: string;

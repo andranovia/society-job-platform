@@ -24,7 +24,7 @@ class JobApplyRequest extends FormRequest
         return [
             'job_vacancy_id' => 'required',
             'position' => 'required',
-            'notes' => 'required'
+           
         ];
     }
 }

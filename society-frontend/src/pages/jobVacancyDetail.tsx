@@ -1,11 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import useJobVacanciesDetail from "../hooks/useJobVacanciesDetail";
 import LayoutDashboardUser from "../layout/layoutDashboardUser";
 import { useParams } from "react-router-dom";
+import useApplyJobs from "../hooks/useApplyJobs";
+
+interface applyJobsDataProps {
+  position_id: number;
+  notes?: string;
+}
+
 
 const JobVacancyDetail = () => {
   const { id } = useParams();
   const { jobVacancyDetail } = useJobVacanciesDetail(id);
+  const [applyJobsData, setApplyJobsData] = useState<applyJobsDataProps>({
+    position_id: 0,
+  });
+  const { applyJobs } = useApplyJobs();
+
+  const handleChange = (positionId: number) => {
+    setApplyJobsData((prevData) => ({
+      ...prevData,
+      position_id: positionId,
+    }));
+  };
+
+  const handleApplyJobs = () => {
+
+    const job_vacancy_id = jobVacancyDetail?.vacancies.id || 0;
+    const applyData = {
+      job_vacancy_id,
+      position: applyJobsData.position_id
+    }
+
+    applyJobs({applyJobsData: applyData});
+  };
 
   return (
     <LayoutDashboardUser>
@@ -26,38 +55,62 @@ const JobVacancyDetail = () => {
           <h1 className="text-lg text-primary lg:text-2xl font-semibold mt-10">
             Select Position
           </h1>
-          <div className="flex flex-col w-full lg:w-1/2">
-            <div className=" w-full mt-4">
-              {jobVacancyDetail?.vacancies.available_position.map(
-                (data, index) => (
-                  <React.Fragment key={index}>
-                    <div className="flex flex-col gap-4 items-start w-full bg-base p-4">
-                      <div>
-                        <h1 className="text-lg text-primary font-semibold ">
-                          Position:
-                        </h1>
-                        <p className="text-sm"> {data.position}</p>
-                      </div>
-                      <div>
-                        <h1 className="text-lg text-primary font-semibold ">
-                          Capacity:
-                        </h1>
-                        <p className="text-sm"> {data.capacity}</p>
-                      </div>
-                      <div>
-                        <h1 className="text-lg text-primary font-semibold ">
-                          Application / Max:
-                        </h1>
-                        <p className="text-sm"> {data.apply_capacity}</p>
-                      </div>
-                    </div>
-                    <button className="bg-primary p-2 w-full text-white rounded-b-md">
-                      Apply For This Job
-                    </button>
-                  </React.Fragment>
-                )
-              )}
-            </div>
+
+          <div className="relative  shadow-md sm:rounded-lg mt-10 z-2">
+            <table className="w-full text-sm text-left rtl:text-right text-gray-500 ">
+              <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
+                <tr>
+                  <th scope="col" className="p-4">
+                    checkbox
+                  </th>
+                  <th scope="col" className="px-32 py-3">
+                    Position
+                  </th>
+                  <th scope="col" className="px-32 py-3">
+                    Capacity
+                  </th>
+                  <th scope="col" className="px-32 py-3">
+                    Application / Max
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="bg-white   ">
+                  {jobVacancyDetail?.vacancies.available_position.map(
+                    (data, index) => (
+                      <React.Fragment key={index}>
+                        <td className="w-4 p-4">
+                          <div className="flex items-center">
+                            <input
+                              id="checkbox"
+                              type="checkbox"
+                              name="position"
+                              onChange={() => handleChange(data.id)}
+                              className="w-4 h-4 text-gray-500 bg-gray-100 border-gray-300 rounded  ring-offset-gray-800 focus:ring-offset-gray-800 focus:ring-2 "
+                            />
+                            <label form="checkbox" className="sr-only">
+                              checkbox
+                            </label>
+                          </div>
+                        </td>
+                        <th
+                          scope="row"
+                          className="px-32 py-4 font-medium text-gray-900 whitespace-nowrap "
+                        >
+                          {data.position}
+                        </th>
+                        <td className="px-32 py-4">{data.capacity}</td>
+                        <td className="px-32 py-4">{data.apply_capacity}</td>
+                      </React.Fragment>
+                    )
+                  )}
+                </tr>
+              </tbody>
+            </table>
+           
+          </div>
+          <div className="mt-8">
+          <button onClick={() => handleApplyJobs()} className="rounded-md bg-primary p-4 text-white">Apply for jobs</button>
           </div>
         </div>
       </div>

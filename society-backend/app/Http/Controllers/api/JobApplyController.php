@@ -74,7 +74,8 @@ class JobApplyController extends Controller
                     $positionData = [
                         'position' => $availablePosition->position,
                         'apply_status' => $jobApplyPosition->status,
-                        'notes' => $jobApplySociety->notes
+                        'notes' => $jobApplySociety->notes,
+                        'apply_date' => $jobApplyPosition->date,
                     ];
 
 
@@ -91,9 +92,7 @@ class JobApplyController extends Controller
             }
             return response()->json(['vacancies' => $vacancies], 200);
         } else {
-            return response()->json([
-                'message' => 'Applying for job successfull'
-            ], 200);
+            return response()->json(['error' => 'Unauthorized user'], 401);
         }
     }
 }

@@ -22,6 +22,7 @@ interface jobVacanciesData {
 }
 
 const useJobVacancies = () => {
+  
   const [jobVacancies, setJobVacancies] = useState<jobVacanciesData>({
     vacancies: [],
   });
